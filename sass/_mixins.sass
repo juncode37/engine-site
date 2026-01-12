@@ -1,0 +1,295 @@
+// _mixins.sass
+
+// Адаптивные медиа-запросы
+=mobile
+  @media (max-width: 767px)
+    @content
+
+=tablet
+  @media (min-width: $tablet) and (max-width: 991px)
+    @content
+
+=desktop
+  @media (min-width: $desktop)
+    @content
+
+=desktop-lg
+  @media (min-width: $desktop-lg)
+    @content
+
+// Адаптивные размеры шрифтов
+=hero-title
+  font-size: $hero-title-mobile
+  font-weight: $font-weight-bold
+  line-height: $line-height-heading
+  
+  +tablet
+    font-size: $hero-title-tablet
+  
+  +desktop
+    font-size: $hero-title-desktop
+
+=hero-subtitle
+  font-size: $hero-subtitle-mobile
+  line-height: $line-height-base
+  
+  +tablet
+    font-size: $hero-subtitle-tablet
+  
+  +desktop
+    font-size: $hero-subtitle-desktop
+
+=h1-responsive
+  font-size: $h1-mobile
+  font-weight: $font-weight-bold
+  line-height: $line-height-heading
+  
+  +tablet
+    font-size: $h1-tablet
+  
+  +desktop
+    font-size: $h1-desktop
+
+=h2-responsive
+  font-size: $h2-mobile
+  font-weight: $font-weight-bold
+  line-height: $line-height-heading
+  
+  +tablet
+    font-size: $h2-tablet
+  
+  +desktop
+    font-size: $h2-desktop
+
+=h3-responsive
+  font-size: $h3-mobile
+  font-weight: $font-weight-bold
+  line-height: $line-height-heading
+  
+  +tablet
+    font-size: $h3-tablet
+  
+  +desktop
+    font-size: $h3-desktop
+
+=text-responsive
+  font-size: $text-mobile
+  
+  +tablet
+    font-size: $text-tablet
+  
+  +desktop
+    font-size: $text-desktop
+
+// Кнопки
+=btn-base
+  display: inline-block
+  padding: 14px 32px
+  font-family: $font-family
+  font-weight: $font-weight-medium
+  text-align: center
+  text-decoration: none
+  border: none
+  border-radius: $border-radius
+  cursor: pointer
+  transition: $transition
+  
+  &:focus
+    outline: none
+
+=btn-primary
+  +btn-base
+  background-color: $primary
+  color: $white
+  box-shadow: $box-shadow
+  
+  &:hover
+    background-color: $primary-hover
+    box-shadow: $box-shadow-lg
+    transform: translateY(-2px)
+    color: $white
+  
+  &:active
+    transform: translateY(0)
+
+=btn-outline($color: $primary)
+  +btn-base
+  background-color: transparent
+  color: $color
+  border: 2px solid $color
+  
+  &:hover
+    background-color: $color
+    color: $white
+
+// Flexbox
+=flex-center
+  display: flex
+  justify-content: center
+  align-items: center
+
+=flex-between
+  display: flex
+  justify-content: space-between
+  align-items: center
+
+=flex-column-center
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+
+// Контейнер
+=container
+  max-width: $container-max
+  margin: 0 auto
+  padding: 0 $spacing-sm
+  
+  +desktop
+    padding: 0 $spacing-md
+
+// Секции
+=section-padding
+  padding: $section-padding-mobile 0
+  
+  +tablet
+    padding: $section-padding-tablet 0
+  
+  +desktop
+    padding: $section-padding-desktop 0
+
+=section-padding-large
+  padding: ($section-padding-mobile * 1.5) 0
+  
+  +tablet
+    padding: ($section-padding-tablet * 1.5) 0
+  
+  +desktop
+    padding: ($section-padding-desktop * 1.5) 0
+
+// Темный overlay
+=overlay($opacity: 0.5)
+  position: relative
+  
+  &::before
+    content: ''
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background-color: rgba($dark, $opacity)
+    z-index: 1
+  
+  > *
+    position: relative
+    z-index: 2
+
+// Круглые элементы
+=circle($size)
+  width: $size
+  height: $size
+  border-radius: 50%
+  overflow: hidden
+
+=avatar($size, $border-width: 4px, $border-color: $white)
+  +circle($size)
+  border: $border-width solid $border-color
+  object-fit: cover
+
+=step-number($size: 60px, $bg-color: $primary, $text-color: $white)
+  +circle($size)
+  +flex-center
+  background-color: $bg-color
+  color: $text-color
+  font-weight: $font-weight-bold
+  font-size: 24px
+  box-shadow: $box-shadow
+
+// Карточки
+=card
+  background: $white
+  border-radius: $border-radius
+  padding: $spacing-lg
+  box-shadow: $box-shadow
+  transition: $transition
+  
+  &:hover
+    box-shadow: $box-shadow-lg
+    transform: translateY(-4px)
+
+=testimonial-card
+  text-align: center
+  padding: $spacing-md
+  
+  img
+    +avatar(150px)
+    margin: 0 auto $spacing-md
+    box-shadow: $box-shadow
+  
+  blockquote
+    +text-responsive
+    color: $dark
+    font-style: italic
+    margin-bottom: $spacing-sm
+    line-height: $line-height-base
+  
+  cite
+    display: block
+    font-size: $text-small-desktop
+    color: $text-gray
+    font-weight: $font-weight-medium
+    font-style: normal
+
+// Тени с hover
+=shadow-hover
+  box-shadow: $box-shadow
+  transition: $transition
+  
+  &:hover
+    box-shadow: $box-shadow-lg
+    transform: translateY(-2px)
+
+// Градиенты
+=gradient-overlay($direction: to bottom, $color1: $primary, $color2: darken($primary, 15%))
+  background: linear-gradient($direction, $color1, $color2)
+
+// Абсолютное позиционирование
+=absolute-center
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+
+// Сброс списков
+=reset-list
+  list-style: none
+  margin: 0
+  padding: 0
+
+// Текст с многоточием
+=text-ellipsis
+  overflow: hidden
+  text-overflow: ellipsis
+  white-space: nowrap
+
+=text-ellipsis-multiline($lines: 2)
+  display: -webkit-box
+  -webkit-line-clamp: $lines
+  -webkit-box-orient: vertical
+  overflow: hidden
+
+// Ссылки
+=link-style($color: $primary, $hover-color: $primary-hover)
+  color: $color
+  text-decoration: none
+  transition: $transition
+  
+  &:hover
+    color: $hover-color
+
+// Сетка
+=grid-auto($min-width: 250px, $gap: $spacing-lg)
+  display: grid
+  grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr))
+  gap: $gap
