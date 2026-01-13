@@ -385,6 +385,21 @@ main .confirm {
     main .confirm::before {
       background-image: url("../img/deskt.jpg"); } }
 
+.btn-tg {
+  background-color: #2AABEE !important; }
+  .btn-tg:hover {
+    background-color: #0d71a5 !important; }
+
+.btn-wa {
+  background-color: #25D366 !important; }
+  .btn-wa:hover {
+    background-color: #167c3c !important; }
+
+.btn-mx {
+  background-color: #7360F2 !important; }
+  .btn-mx:hover {
+    background-color: #5e48f0 !important; }
+
 main .benefits {
   padding-bottom: 4em; }
   main .benefits h2 {
@@ -527,5 +542,22 @@ main .form {
       text-decoration: none;
       color: inherit;
       font-size: inherit; }
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 20px; }
+  .footer-social a {
+    display: inline-block;
+    width: 36px;
+    height: 36px; }
+    .footer-social a img {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.2s ease, opacity 0.2s ease; }
+    .footer-social a:hover img {
+      transform: scale(1.15);
+      opacity: 0.8; }
 
 /*# sourceMappingURL=main.css.map */
