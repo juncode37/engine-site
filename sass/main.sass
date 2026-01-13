@@ -3,15 +3,12 @@
 @import variables
 @import mixins
 @import animations
-*,
-*::before,
-*::after
-  box-sizing: border-box
+
+*
+  font-size: calc(0.5em + 0.5vw)
 
 body
   font-family: $font-family
-  font-size: 16px
-  line-height: 1.5
 
 // header start
 .header
@@ -211,7 +208,7 @@ main
     padding-bottom: $mb-lg
 
     h2
-      +h2-responsive
+      font-size: 20px
       text-align: center
       margin-bottom: 0.5em
 
@@ -235,7 +232,7 @@ main
 
         p
           color: $text-gray
-          +text-responsive
+          font-size: 16px
           text-align: justify
 // benefits-end
 // reviews start
