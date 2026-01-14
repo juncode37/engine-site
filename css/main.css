@@ -407,7 +407,7 @@ main .confirm {
 main .benefits {
   padding-bottom: 4em; }
   main .benefits h2 {
-    font-size: 20px;
+    font-size: 28px;
     text-align: center;
     margin-bottom: 0.5em; }
   main .benefits__card {
@@ -504,6 +504,9 @@ main .form {
       font-size: 16px; }
     main .form form label {
       font-size: 16px; }
+    main .form form button {
+      font-size: 16px;
+      background: #2f1c79; }
 
 .footer {
   padding: 4em 0;
